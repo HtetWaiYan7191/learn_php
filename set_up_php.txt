@@ -1,0 +1,3 @@
+install xampp
+Set php in the local environment
+install composer => package manager to install require dependency 

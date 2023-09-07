@@ -1,0 +1,19 @@
+client => want to get info => user, user-device, user-agent which is software
+server => send response
+protocol => interface to connect between client and server
+
+we will use HTTP => Hypertext Transfer Protocol to connect between client and server
+
+request/response Headers
+
+client side two parts include
+
+Header => the format to access the data
+Body => data sending to server
+
+servers side inclde two parts also
+
+Header => given data format
+Body => data from server
+
+

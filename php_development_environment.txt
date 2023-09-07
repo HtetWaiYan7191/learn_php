@@ -1,0 +1,17 @@
+what is xampp ? 
+all in one package for php
+kinda php development environment 
+include require packages and mysql database such as... but not good for production environment . because of large packages it can make slower than expected
+
+
+Includes 
+Apache web server
+Apache Modules
+php
+php extensions
+mysql database
+mysql admin
+
+PHP => interpreted language
+which means computer need interpretr to understand php codes
+
