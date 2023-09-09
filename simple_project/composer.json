@@ -1,0 +1,24 @@
+{
+    "name": "htet/php_project",
+    "description": "php project testing with database",
+    "autoload": {
+        "psr-4": {
+            "Htet\\PhpProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "htetwaiyan"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+        "Libs\\": "_classes/Libs/",
+        "Helpers\\": "_classes/Helpers/"
+        }
+    }
+       
+}
