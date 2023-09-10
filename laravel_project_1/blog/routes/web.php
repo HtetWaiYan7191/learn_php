@@ -36,3 +36,7 @@ Route::get('/users/detail/{id}/photos', function($id) {
     return "Users Detail - $id";
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
