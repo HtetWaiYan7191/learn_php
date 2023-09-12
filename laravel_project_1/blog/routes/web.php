@@ -23,6 +23,10 @@ Route::get('/', [ArticleController::class, 'index']);
 Route::get('/articles', [ArticleController::class, 'index']);
 
 Route::get('/articles/detail/{id}', [ArticleController::class, 'detail']);
+Route::get('/articles/add', [Articlecontroller::class, 'add'])->name('articles.add');
+Route::post('/articles/add', [ArticleController::class, 'create'])->name('articles.add');
+
+Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
 
 //dynamic routes go the the page depending on the para
 // Route::get('/articles/detail/{id}', function ($id) {

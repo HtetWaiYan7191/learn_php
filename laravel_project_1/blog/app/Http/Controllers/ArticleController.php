@@ -13,6 +13,43 @@ class ArticleController extends Controller
     }
 
     public function detail($id) {
-        return "Controller - Article Detail - $id";
+        $data = Article::find($id);
+        return view('articles.detail', ['article' => $data]);
+    }
+
+    public function add() {
+        $data = [
+            ["id" => 1, "name" => "News"],
+            ["id" => 2, "name" => "Tech"],
+        ];
+        return view('articles.add', ['categories' => $data]);
+    }
+
+    public function create(Request $request) {
+        // Validate the form data
+        $validator = validator($request->all(), [
+            'title' => 'required',
+            'body' => 'required',
+            'category_id' => 'required'
+        ]);
+    
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
+        }
+    
+        // Create a new Article instance and save it to the database
+        $article = new Article;
+        $article->title = $request->input('title');
+        $article->body = $request->input('body');
+        $article->category_id = $request->input('category_id');
+        $article->save();
+    
+        return redirect('/articles');
+    }
+
+    public function delete($id) {
+        $article = Article::find($id);
+        $article->delete();
+        return redirect('articles')->with('info', 'Article Deleted');
     }
 }
