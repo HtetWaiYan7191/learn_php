@@ -36,9 +36,16 @@
 
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
+                            @auth
                             <a class="nav-link text-success" href="{{ url('/articles/add') }}">
                                 + Add Article
                             </a>
+                            @endauth
+                            @guest
+                            <a class="nav-link text-success" href="{{ url('/login') }}">
+                                Log in To add Article
+                            </a>
+                            @endguest
                         </li>
                     </ul>
 

@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 
 class ArticleController extends Controller
-{
+{   
+    public function __construct() {
+        $this->middleware('auth')->except(['index', 'detail']);
+    }
+    
     public function index() {
         $data = Article::latest()->paginate(5);
         return view('articles.index',['articles' => $data]);

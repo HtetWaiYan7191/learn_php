@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('/', [ArticleController::class, 'index']);
 Route::get('/articles', [ArticleController::class, 'index']);
 
 Route::get('/articles/detail/{id}', [ArticleController::class, 'detail']);
-Route::get('/articles/add', [Articlecontroller::class, 'add'])->name('articles.add');
+Route::get('/articles/add', [Articlecontroller::class, 'add'])->name('articles.add')->middleware('auth');
 Route::post('/articles/add', [ArticleController::class, 'create'])->name('articles.add');
 
 Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
@@ -40,6 +41,8 @@ Route::get('/users/detail/{id}/photos', function($id) {
     return "Users Detail - $id";
 });
 
+Route::post('/comments/add', [CommentController::class, 'create']);
+Route::get('/comments/delete/{id}', [CommentController::class, 'delete']);
 
 Auth::routes();
 
