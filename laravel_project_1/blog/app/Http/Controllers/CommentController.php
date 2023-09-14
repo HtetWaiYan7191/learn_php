@@ -15,17 +15,18 @@ class CommentController extends Controller
         $comment = new Comment;
         $comment->content = $request->input('content');
         $comment->article_id = $request->input('article_id');
-        $comment->user_id = 1;
+        $comment->user_id = auth()->user()->id;
         $comment->save();
-        return back();
+        return back();  
     }
 
     public function delete($id) {
-        if($comment->user_id == auth()->user()->id) {
+        $comment = Comment::find($id);
+        if( Gate::allow('comment-delete', $comment)) {
             $comment->delete();
             return back();
         } else {
-            return back()->with('error', 'Unauthorize');    
+            return back()->with('error', 'Unauthorize');
         }
     }
 }
